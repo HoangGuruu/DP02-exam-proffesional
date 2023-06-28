@@ -1,10 +1,10 @@
 # AWS Certified DevOps Engineer Professional 2023 - DOP-C02 - Udemy
 
-## 1. ✅ Course Overview
+## I. ✅ Course Overview
 
-## 2. ✅ Code&Slides Download
+## II. ✅ Code&Slides Download
 
-## 3. Domain 1: SDLC Automation
+## III. Domain 1: SDLC Automation
 
 - ✅Introduction to CICD in AWS
 - ✅CodeCommit - Overview
@@ -35,26 +35,78 @@
 - ✅AWS Amplify
 - ✅AWS Amplify - Extras
 
-## 4. Domain 2: Configuration Management and Infrastructure as Code
+## IV. Domain 2: Configuration Management and Infrastructure as Code
 ## Hands-on
+### 1. CloudFormation - Overview
+### 2. Create Stack Hands-on
 
+- In cloudFormation / Stacks
+- Template is ready
+- Upload a template
 
-- CloudFormation - Overview
-- CloudFormation - Create Stack Hands On
-- CloudFormation - Update & Delete Stack Hands On
-- YAML Crash Course
-- CloudFormation - Resources
-- CloudFormation - Parameters
-- CloudFormation - Mappings
-- CloudFormation - Outputs
-- CloudFormation - Conditions
-- CloudFormation - Intrinsic Functions
-- CloudFormation - Rollbacks
-- CloudFormation - Drift
-- CloudFormation - Stack Policies
-- CloudFormation - Nested Stacks
-- CloudFormation - ChangeSets
-- CloudFormation - DeletionPolicy
+```
+---
+Resources:
+	MyInstance:
+		Type: AWS::EC2::Instance
+		Properties:
+		AvailabilityZone: us-east-1a
+		ImageId: ami-a4c7edb2
+		InstanceType: t2.micro
+```
+### 3. Update & Delete Stack
+
+```
+# template 2nd
+
+1-ec2-with-sg-eip
+
+```
+### 4. YAML Crash Course
+
+### 5. CloudFormation - Resources
+- Can find [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in documentation
+
+### 6. CloudFormation - Parameters
+### 7. CloudFormation - Mappings
+### 8. CloudFormation - Outputs
+### 9. CloudFormation - Conditions
+### 10. CloudFormation - Intrinsic Functions
+### 11. CloudFormation - Rollbacks
+
+- Create stack
+- use 2-trigger....
+- In stack failure options - choose in queried : Preserve .... OR ...
+- Then check -- it's not ok
+
+- And create again with 0 , then update with 2, then 2 failure , it roll on 0
+
+### 12. CloudFormation - Drift
+- Create stack with 3-drift-security-group.yaml
+- Then change the results - edit the SecurityGroup and Check
+- Stack actions / Detect drift / View drift
+
+### 13. CloudFormation - Stack Policies
+
+### 14. CloudFormation - Nested Stacks
+
+- Create stack with 7-nestedstacks.yaml
+- In this project - Choose SSHKey in Parameter
+- In Capabilities : tick all 2
+- Check - nestedstacks (it's can understand like URL: another stack in code)- outputs
+
+### 15. CloudFormation - ChangeSets
+- Create stack 0 
+- Create change set in actions
+- Upload stack 1 
+- Then check changesets - before ... excute
+
+### 16. CloudFormation - DeletionPolicy
+- Create stack with 9
+- Delete stack 
+- Then check SG is retain and RDB have a snapshot appear and then deleted
+
+  
 - CloudFormation - Termination Protection
 - CloudFormation - EC2 User Data
 - CloudFormation - CFN Init Overview
@@ -116,26 +168,26 @@
 - AWS OpsWorks - CloudWatch Events Integration
 - AWS OpsWorks - Summary & Cleanup
 
-## 6. Domain 3: Resilient Cloud Solutions
+## VI. Domain 3: Resilient Cloud Solutions
 
-## 7. Domain 4: Monitoring and Logging
+## VII. Domain 4: Monitoring and Logging
 
-## 8. Domain 5: Incident and Event Response
+## VIII. Domain 5: Incident and Event Response
 
-## 9. Domain 6: Security and Compliance
+## IX. Domain 6: Security and Compliance
 
-## 10. Other Services
+## X. Other Services
 
-## 11. Domain 1 - OLD: SDLC Automation
+## XI. Domain 1 - OLD: SDLC Automation
 
-## 12. Domain 2 - OLD: Configuration Management and Infrastructure as Code
+## XII. Domain 2 - OLD: Configuration Management and Infrastructure as Code
 
-## 13. Domain 3 - OLD: Monitoring and Logging
+## XIII. Domain 3 - OLD: Monitoring and Logging
 
-## 14. Domain 4 - OLD: Policies and Standards Automation
+## XIV. Domain 4 - OLD: Policies and Standards Automation
 
-## 15. Domain 5 - OLD: Incident and Event Response
+## XV. Domain 5 - OLD: Incident and Event Response
 
-## 16. Domain 6 - OLD: High Availability, Fault Tolerance, and Disaster Recovery
+## XVI. Domain 6 - OLD: High Availability, Fault Tolerance, and Disaster Recovery
 
-## 17. Other Services
+## XVII. Other Services
