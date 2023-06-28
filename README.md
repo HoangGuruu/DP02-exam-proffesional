@@ -32,11 +32,13 @@
 - ✅CodeGuru - Extras
 - ✅EC2 Image Builder
 - ✅EC2 Image Builder - Extras
-- ✅[SOA] AWS Amplify
+- ✅AWS Amplify
 - ✅AWS Amplify - Extras
 
 ## 4. Domain 2: Configuration Management and Infrastructure as Code
-    + Write for learn
+## Hands-on
+
+
 - CloudFormation - Overview
 - CloudFormation - Create Stack Hands On
 - CloudFormation - Update & Delete Stack Hands On
