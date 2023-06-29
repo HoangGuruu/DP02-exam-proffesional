@@ -85,9 +85,7 @@ Resources:
 - Create stack with 3-drift-security-group.yaml
 - Then change the results - edit the SecurityGroup and Check
 - Stack actions / Detect drift / View drift
-
 ### 13. CloudFormation - Stack Policies
-
 ### 14. CloudFormation - Nested Stacks
 
 - Create stack with 7-nestedstacks.yaml
@@ -105,25 +103,79 @@ Resources:
 - Create stack with 9
 - Delete stack 
 - Then check SG is retain and RDB have a snapshot appear and then deleted
+### 17. CloudFormation - Termination Protection
+- Edit Termination Protection to protect before delete
+### 18. CloudFormation - EC2 User Data
+- Create stack with 10cfn-init/1-ec2-user-data.yaml
+- See logs in EC2
+```
+cat /var/log/cloud-init-output.log 
+```
+### 19. CloudFormation - CFN Init Overview
+### 20. CloudFormation - CFN Init Scripts
+### 21 CloudFormation - CFN Init Hands On
+- Create stack with 10-cfn-init/2-cfn-init.yaml
+	+ Create a S3 bucket with webappp (name.html simple app) and add name of bucket
+	+ Have KeyName
+	+ SSHLocation : 0.0.0.0/0
+	
+### 22. CloudFormation - Continue Rolling Back an Update
+- Create stack with 14-deployment-options/continue-rollback.yaml
+- Then check with delete Launch Configuration in ASG EC2 and create a new ones
+- Then Update stack with another template 14-deployment-options/continue-rollback-failed.yaml
+- Then check
+### 23. CloudFormation - Custom Resources Overview
+### 24. CloudFormation - Custom Resources with AWS Lambda
+- Create stack with 16-advanced-resources/custom-resourceslambda-backed.yaml
+- Add or upload file in S3 then check
+- It will delete All in S3 and S3 if i choose delete Stack
+### 25. ====== NOTE ======
+### 26. CloudFormation - Service Role
+- Add user
+- Create policy with json 14/service-role/cloudformation-user-policy.json
+- Then attach custom policy with user
+- Create stack with 14/service-role/template.yaml
+- Then can see Access denied
+- Then edit policy - Add "ssm:GetPArameters"
+- Delete stack
+- Create role CloudFormation : FullEC2 , ssmONLYREAD
+- Then again - In permissions add role ARN
+- Then check 
+### 27. CloudFormation - SSM Parameters
+### 28. CloudFormation - SSM Parameters Hands On
+- Parameter Store
+- name : /dev/ec2/instanceType
+- data type :text
+- value : t2.micro
+- Then check Public parameters with /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+- Create stack with 3-parameters/1-ssm-parameters-hands-on.yaml
+- Then add Parameters with ImageId and InstanceType
+- Then check with change in Parameters t2.micro -> t2.nano then update with current stack
+- AND CHECK
+### 29. CloudFormation - Dynamic References
+### 30. CloudFormation - Dynamic References Hands On
+- 16-advanced-resources
+- Create Parameter | /ec2/instanceType - t2.micro | /iam/userPassword - Choose SecureString - Value: supersecretpassword
+- Go to Secrets Manager - Store a new secret
+- Choose other type of secrets
+	+ username : administrator
+	+ password : MySecretPassword124$10
+- Change value of /iam/userPassword - Value: supersecretpassword$!121
+- Create stack with 16-advanced-resources/dynamic-references.yaml - KeyName
+- Then Check
+### 31. CloudFormation - StackSets
+### 32. CloudFormation - StackSets Hands On
+- Create stack with 13-stacksets/AWSCloudFormationStackSetAdministrationRole.yml
+- Create stack with 13-stacksets/AWSCloudFormationStackSetExecutionRole.yml
+	+ Pass AcountId in Parameters { in console }
+- Create stack with 13-stacksets/enable-aws-config.yaml
+	+ Deploy stacksets in this account
+	+ Sign in with number ID account
+	+ Add region
+	+ Deployment options
+- Then check , we will see stacksets in 2 region 
 
-  
-- CloudFormation - Termination Protection
-- CloudFormation - EC2 User Data
-- CloudFormation - CFN Init Overview
-- CloudFormation - CFN Init Scripts
-- CloudFormation - CFN Init Hands On
-- CloudFormation - Continue Rolling Back an Update
-- CloudFormation - Custom Resources Overview
-- CloudFormation - Custom Resources with AWS Lambda
-====== NOTE ======
-- CloudFormation - Service Role
-- CloudFormation - SSM Parameters
-- CloudFormation - SSM Parameters Hands On
-- CloudFormation - Dynamic References
-- CloudFormation - Dynamic References Hands On
-- CloudFormation - StackSets
-- CloudFormation - StackSets Hands On
-- CloudFormation - StackSets Updates Hands On
+
 - CloudFormation - StackSets Drift
 - CloudFormation - StackSets Delete Hands On
 - Service Catalog - Overview
