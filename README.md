@@ -168,13 +168,14 @@ cat /var/log/cloud-init-output.log
 - Create stack with 13-stacksets/AWSCloudFormationStackSetAdministrationRole.yml
 - Create stack with 13-stacksets/AWSCloudFormationStackSetExecutionRole.yml
 	+ Pass AcountId in Parameters { in console }
-- Create stack with 13-stacksets/enable-aws-config.yaml
+- Create stackset with 13-stacksets/enable-aws-config.yaml
 	+ Deploy stacksets in this account
 	+ Sign in with number ID account
 	+ Add region
 	+ Deployment options
 - Then check , we will see stacksets in 2 region 
-
+### 33. CloudFormation - StackSets Update Hands On
+- Add stack in stackset
 
 - CloudFormation - StackSets Drift
 - CloudFormation - StackSets Delete Hands On
