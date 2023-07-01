@@ -174,19 +174,60 @@ cat /var/log/cloud-init-output.log
 	+ Add region
 	+ Deployment options
 - Then check , we will see stacksets in 2 region 
-### 33. CloudFormation - StackSets Update Hands On
+### 33. CloudFormation - StackSets Updates Hands On
 - Add stack in stackset
+	+ Account Id : 
+	+ Region : 
+### 34. CloudFormation - StackSets Drift
+- Action - detection drift
+### 35. CloudFormation - StackSets Delete Hands On
+- Delete , if retain - can save invidial , and delete all 
+### 36. Service Catalog - Overview
+### 37. Service Catalog - Extras
+### 38. Elastic Beanstalk - Overview
+### 39. Elastic Beanstalk - Hands On
+- Create a first application
+- Name : MyApplication-dev
+- Environment: MyApplication-dev
+- Platform : Node.js
+- Application code : sample application
+- Config service access 
+	+ Create IAM role :  
+	+ EC2 to AWSElasticBeanstalkWebTier
+	+ AWSElasticBeanstalkWorkerTier
+	+ AWSElasticBeanstalkMulticontainerDocker
+	
+	+ Then choose this role in EC2 instance profile
+	+ And service role : Create and use new service role
+- Then check CloudFormation
+- Check EC2
+- Check Elastic Beanstalk
 
-- CloudFormation - StackSets Drift
-- CloudFormation - StackSets Delete Hands On
-- Service Catalog - Overview
-- Service Catalog - Extras
-- Elastic Beanstalk - Overview
-- Elastic Beanstalk - Hands On
-- Elastic Beanstalk - High Availability Environment
-- Elastic Beanstalk - Deployment Modes
-- Elastic Beanstalk - Deployment Modes Hands On
-- Elastic Beanstalk - Extras
+### 40. Elastic Beanstalk - High Availability Environment
+- Create Application
+- Name
+- Environment : MyApplication-Prod
+- Platform : Node.js
+- Sample application
+- Preset : Choose High availability
+- Choose sevice exits - and ...
+- Because choosing High availability so 
+	+ VPC
+	+ Public IP address , choose all , not actived
+	+ Enable database if use
+- NEXT
+- Capacity : load balanced 1-4
+- choose t3.micro only 
+- NEXT
+- 
+- You can choose skip overview and create new environment
+- Check output
+### 41. Elastic Beanstalk - Deployment Modes
+### 42. Elastic Beanstalk - Deployment Modes Hands On
+- Check in Rolling updates and  deployments
+- Test deploy with code of sample application
+- { Should do agian and check }
+### 43. Elastic Beanstalk - Extras
 - Serverless Application Model (SAM) - Overview
 - Serverless Application Model (SAM) with CodeDeploy
 - Cloud Development Kit (CDK) - Overview
