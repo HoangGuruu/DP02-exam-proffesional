@@ -228,6 +228,9 @@ cat /var/log/cloud-init-output.log
 - Test deploy with code of sample application
 - { Should do agian and check }
 ### 43. Elastic Beanstalk - Extras
+
+![image](https://github.com/HoangGuruu/DevOps-Exam-Readiness-AWS-Certified-DevOps-Engineer-Professional/assets/111829092/9e03c568-1f6a-4374-82a4-c7b258706fb5)
+
 - Serverless Application Model (SAM) - Overview
 - Serverless Application Model (SAM) with CodeDeploy
 - Cloud Development Kit (CDK) - Overview
