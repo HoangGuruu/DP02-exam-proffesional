@@ -229,20 +229,162 @@ cat /var/log/cloud-init-output.log
 - { Should do agian and check }
 ### 43. Elastic Beanstalk - Extras
 
-![image](https://github.com/HoangGuruu/DevOps-Exam-Readiness-AWS-Certified-DevOps-Engineer-Professional/assets/111829092/9e03c568-1f6a-4374-82a4-c7b258706fb5)
+### 44. Serverless Application Model (SAM) - Overview
+### 45. Serverless Application Model (SAM) with CodeDeploy
+- [How to install sam and ... ](https://viblo.asia/p/xay-dung-ung-dung-tu-dong-convert-image-to-thumbnail-bang-sam-su-dung-trigger-khi-co-file-upload-vao-bucket-cua-s3-Qbq5QEWm5D8)
+### 46. Cloud Development Kit (CDK) - Overview
+- Use AWS CloudShell
+```
+# 1. install the CDK
+sudo npm install -g aws-cdk-lib
 
-- Serverless Application Model (SAM) - Overview
-- Serverless Application Model (SAM) with CodeDeploy
-- Cloud Development Kit (CDK) - Overview
-- Cloud Development Kit (CDK) - Hands On
-- Step Functions - Overview
-- Step Functions - Hands On
-- AppConfig - Overview
-- Systems Manager (SSM) - Overview
-- Start EC2 Instances with SSM Agent - Hands On
-- AWS Tags & SSM Resource Groups
-- SSM Documents & SSM Run Command
-- SSM Automations
+# directory name must be cdk-app/ to go with the rest of the tutorial, changing it will cause an error
+mkdir cdk-app
+cd cdk-app/
+
+# initialize the application
+cdk init app --language javascript
+# verify it works correctly
+cdk ls
+
+# 2. copy the content of cdk-app-stack.js into lib/cdk-app-stack.js
+# In cdk/cdk-app-stack (1).js
+
+# 3. setup the Lambda function
+mkdir lambda && cd lambda
+touch index.py
+
+# 4. bootstrap the CDK application
+cdk bootstrap
+
+# 5. (optional) synthesize as a CloudFormation template
+cdk synth
+
+
+# 6. deploy the CDK stack
+cdk deploy
+
+# 7. empty the s3 bucket
+# 8. destroy the stack
+cdk destroy
+```
+### 44. Serverless Application Model (SAM) - Overview
+### 45. Serverless Application Model (SAM) with CodeDeploy
+- Check with terminal in VSC + Folder : sam-codedeploy 
+```
+# Step 1 - Download a sample application
+sam init --runtime python3.9
+# choose 1 - 1
+
+# Step 2 - Build your application
+cd sam-app
+sam build
+
+# Step 3 - Package your application
+sam deploy --guided
+```
+- Go to lambda 
+- Check in deployment , functions
+- Check change in code and build , deploy again - then check deployment status
+	+ traffic shift
+### 46. Cloud Development Kit (CDK) - Overview
+- Deploy your cloud infrastructure using a familiar language
+- CDK vs SAM
+### 47. Cloud Development Kit (CDK) - Hands On
+![image](https://github.com/HoangGuruu/DevOps-Exam-Readiness-AWS-Certified-DevOps-Engineer-Professional/assets/111829092/9e03c568-1f6a-4374-82a4-c7b258706fb5)
+- Use AWS CloudShell | Folder cdk | Follow the tutorial
+```
+# 1. install the CDK
+sudo npm install -g aws-cdk-lib
+
+# directory name must be cdk-app/ to go with the rest of the tutorial, changing it will cause an error
+mkdir cdk-app
+cd cdk-app/
+
+# initialize the application
+cdk init app --language javascript
+# verify it works correctly
+cdk ls
+
+# 2. copy the content of cdk-app-stack.js into lib/cdk-app-stack.js
+# content in folder
+
+# 3. setup the Lambda function
+mkdir lambda && cd lambda
+touch index.py
+# content in folder
+
+# 4. bootstrap the CDK application
+cdk bootstrap
+# Get in CloudFormation in console to check
+
+
+# 5. (optional) synthesize as a CloudFormation template
+cdk synth
+
+
+# 6. deploy the CDK stack
+cdk deploy
+
+#### Then check the results - add image in s3 bucket and check results of detection in dynamoDB
+
+#### if want to finish
+# 7. empty the s3 bucket
+# 8. destroy the stack
+cdk destroy
+``` 
+### 48. Step Functions - Overview
+### 49. Step Functions - Hands On
+- Go to Step Function in AWS Console
+- Get start
+- Do and check witj true / false
+
+- Go to lambda 
+- Create a lambda function / node.js
+- Check with simple function , with code in folder 
+```
+exports.handler = (event,context,callback) => {
+	callback(null, "Hello," + event.who + "!");
+};
+```
+- Then check with test event
+```
+{
+	"who": "John"
+}
+```
+- This is for me to generate code with flow i want
+
+### 50. AppConfig - Overview
+### 51. Systems Manager (SSM) - Overview
+### 52. Start EC2 Instances with SSM Agent - Hands On
+- Launch 3 EC2 Amazon Linux 
+	+ no key-pair
+	+ no allow sg
+	+ avanced : role : SSMManagedInstancdCore
+- Check in Fleet Manager
+
+### 53. AWS Tags & SSM Resource Groups
+- Create Resource Groups in Console
+- Choose follow required
+### 54. SSM Documents & SSM Run Command
+- Do simple hands-on to check results in AWS Systems Manager
+- Create Command ... with code by YAML to install httpd
+- Then run command / with resource manager : tag ...
+- Enable CloudWatch
+- Check the results
+
+### 55. SSM Automations
+- In AWS Systems Manager - Automation 
+- Filter with : AWS-RestartEC2Instance
+- Choose rate control
+- Choose Targets
+	+ InstanceId
+	+ Resource Groups
+	+ ....
+- Execution
+
+
 - SSM Parameter Store
 - SSM Parameter Store - Hands On
 - SSM Patch Manager and Maintenance Windows
