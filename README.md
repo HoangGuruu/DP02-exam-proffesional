@@ -385,27 +385,133 @@ exports.handler = (event,context,callback) => {
 - Execution
 
 
-- SSM Parameter Store
-- SSM Parameter Store - Hands On
-- SSM Patch Manager and Maintenance Windows
-- SSM Patch Manager and Maintenance Windows - Hands On
-- SSM Session Manager
-- SSM Session Manager - Hands On
-- SSM Cleanup
-- SSM Default Host Management Configuration (DHMC)
-- SSM Default Host Management Configuration (DHMC) - Hands On
-- SSM Hybrid Environments
-- SSM Hybrid Environments - Hands On
-- SSM with IoT Greengrass
-- SSM Automations - Use Cases
-- SSM Compliance
-- SSM OpsCenter
-- SSM Session Manager with VPC Endpoints
-- AWS OpsWorks - Getting Started Part 1
-- AWS OpsWorks - Getting Started Part 2
-- AWS OpsWorks - Lifecycle Events
-- AWS OpsWorks - CloudWatch Events Integration
-- AWS OpsWorks - Summary & Cleanup
+### 55. SSM Automations
+- In AWS Systems Manager - Automation 
+- Filter with : AWS-RestartEC2Instance
+- Choose rate control
+- Choose Targets
+	+ InstanceId
+	+ Resource Groups
+	+ ....
+- Execution
+
+### 56. SSM Parameter Store
+### 57. SSM Parameter Store - Hands On
+- In AWS Systems Manager / Parameter Store
+- Create parameter
+	+ Name : /my-app/dev/db-url
+	+ String
+	+ Value : dev.database.stephanetheteacher:3306
+- Create 2nd parameter
+	+ Name : /my-app/dev/db-password
+	+ SecureString
+	+ My current account
+	+ KMS Key ID: alias/tutorial
+	+ Value :thisisthedevpassword
+- Create 3rd parameter
+	+ Name : /my-app/prod/db-url
+	+ String
+	+ Value : prod.database.stephanetheteacher:3306
+- Create 4th parameter
+	+ Name : /my-app/prod/db-password
+	+ SecureString
+	+ My current account
+	+ KMS Key ID: alias/tutorial
+	+ Value :thisistheprodpassword
+- Check in CLI AWS
+```
+aws ssm get-parameters --names /my-app/dev/db-url /my-app/dev/db-password
+
+aws ssm get-parameters --names /my-app/dev/db-url /my-app/dev/db-password
+
+aws ssm get-parameters-by-path help
+
+aws ssm get-parameters-by-path --path /my-app/dev/
+
+aws ssm get-parameters-by-path --path /my-app/ --recursive
+
+aws ssm get-parameters-by-path --path /my-app/ --recursive --with-decryption
+
+```
+
+### 58. SSM Patch Manager and Maintenance Windows
+### 59.  SSM Patch Manager and Maintenance Windows - Hands On
+- In Patch Manager / AWS Systems Manager
+- Patch now
+	+ Scan and install
+	+ Reboot if needed
+	+ Patch all instances
+- Create Maintenance schedule
+
+
+
+### 60. SSM Session Manager
+### 61. SSM Session Manager - Hands On
+- Start Session / with a EC2 instance
+- Adjust parameter : example : hour to use 1 session ,....
+
+### 62. SSM Cleanup
+### 63. SSM Default Host Management Configuration (DHMC)
+### 64. SSM Default Host Management Configuration (DHMC) - Hands On
+- Fleet Manager
+- Configure DHMC
+- In EC2 launch instance
+	+ amazon linux 2023
+	+ Advanced : Metadata : enable | V2 only
+- Check Default Host Management Configuration
+- Manually installing SSM Agent on EC2 instances for Linux
+- Install lastest version
+- Refresh fleet manager to see instances
+
+### 65. SSM Hybrid Environments
+### 66. SSM Hybrid Environments - Hands On
+- Create activation in SSM Hybrid
+- Instance limit : 1 
+- Get in Instances Ubuntu ( create )
+```
+#!/bin/bash
+# if you need to install the SSM Agent manually:
+sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+
+# check status ubuntu
+sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
+sudo snap stop amazon-ssm-agent
+# edit the code, id and region in the command below
+sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+sudo snap start amazon-ssm-agent
+```
+- Check instance manager in Fleet Manager
+
+### 67. SSM with IoT Greengrass
+### 68. SSM Automations - Use Cases
+### 69. SSM Compliance
+### 70. SSM OpsCenter
+### 71. SSM Session Manager with VPC Endpoints
+### 72. AWS OpsWorks - Getting Started Part 1
+- Get in OpsWorks in Console
+- Add your first stack
+- Sample stack
+- Explore
+- Stack settings
+- Check all parameter of application
+- Edit with instances
+
+### 73. AWS OpsWorks - Getting Started Part 2
+- Edit time-based / instances
+- Add a time-based instances
+	+ In another subnet
+	.... 
+	+ Setting necessary, everything else
+	+ Schedule for my instances
+- Add a load-based instances
+- Check in part deployment 
+- Check in part monitoring
+- Check in part Permission
+
+
+### 74. AWS OpsWorks - Lifecycle Events
+### 75. AWS OpsWorks - CloudWatch Events Integration
+### 76. AWS OpsWorks - Summary & Cleanup
 
 ## VI. Domain 3: Resilient Cloud Solutions
 
